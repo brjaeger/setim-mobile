@@ -27,3 +27,33 @@ Perbedaan utama antara Stateless dan Stateful Widget adalah bahwa Stateless Widg
 - Membuat kode untuk menampilkan widget yang akan dibuat seperti InfoCard dan GridView untuk menampilkan tombol, dan lain-lain sesuai dengan kebutuhan.
 - Menambahkan Snackbar untuk menampilkan tulisan sesuai dengan tombol yang diklik
 - Merubah warna tombol agar memiliki lebih banyak variasi.
+
+Tugas 8
+1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+   - Kegunaan: Kata kunci const di Flutter digunakan untuk membuat objek bersifat immutable (tidak dapat diubah) dan compile-time constant. Artinya, nilai objek tersebut ditentukan pada saat kompilasi, bukan pada saat runtime.
+   - Keuntungan: Penggunaan const memberikan beberapa keuntungan, antara lain:
+      1. Mengurangi Penggunaan Memori: Objek const hanya akan dibuat satu kali, sehingga memori yang digunakan lebih efisien. Ini sangat bermanfaat untuk widget statis yang sering digunakan.
+      2. Optimisasi Kinerja: Karena objek const tidak perlu dibuat ulang setiap kali widget di-render, penggunaan const dapat mengurangi waktu render dan mempercepat performa aplikasi.
+   - Kapan Menggunakan const: Sebaiknya gunakan const pada widget atau objek yang tidak akan berubah selama runtime. Contohnya, pada teks, ikon, atau layout yang tidak membutuhkan update ulang.
+   - Kapan Tidak Menggunakan const: Jangan gunakan const jika objek atau widget tersebut memiliki elemen yang dinamis (akan berubah saat runtime), seperti input teks yang dapat diubah oleh pengguna atau tampilan yang tergantung pada data API.
+   
+2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+   - Column: Widget yang menyusun elemen di dalamnya secara vertikal.
+   - Row: Widget yang menyusun elemen di dalamnya secara horizontal.
+   Perbandingan:
+   - Column: Cocok digunakan untuk tata letak elemen yang memanjang ke bawah. Biasanya digunakan dalam bentuk daftar atau urutan elemen secara vertikal.
+   - Row: Cocok untuk tata letak elemen yang memanjang ke samping. Biasanya digunakan ketika elemen perlu diletakkan bersebelahan secara horizontal.
+    Contoh Pengimplementasian:
+   - Column: Pada penempatan tombol di menu.dart.
+   - Row: Pada penempatan text untuk product, descriptionm dan price di moodentry_form.dart.
+     
+3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+   - Elemen Input yang Digunakan: Beberapa elemen input yang sering digunakan di Flutter adalah TextField untuk input teks, Checkbox untuk memilih opsi tertentu, DropdownButton untuk pilihan opsi dropdown, dan Switch untuk opsi on/off.
+   - Elemen Input Lain yang Tidak Digunakan: Elemen seperti Slider, Radio, dan DatePicker juga tersedia tetapi mungkin tidak diperlukan tergantung pada kebutuhan halaman form.
+
+4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+   - Cara Mengatur Tema: Untuk mengatur tema, Flutter menyediakan ThemeData di MaterialApp yang memungkinkan kita mengatur warna, font, dan gaya default untuk seluruh aplikasi, sehingga tampilannya konsisten. Ya, saya mengimplementasikan tema pada aplikasi ini
+
+5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+   - Navigator: Flutter menyediakan widget Navigator untuk menangani navigasi di antara halaman. Setiap kali kita berpindah halaman, Flutter menambahkan atau menghapus halaman dari stack navigasi, sehingga kita bisa melakukan navigasi push dan pop.
+   - Named Routes: Ini memungkinkan navigasi menggunakan nama untuk setiap halaman yang lebih terstruktur dan mudah dikelola
