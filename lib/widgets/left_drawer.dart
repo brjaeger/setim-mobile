@@ -18,7 +18,7 @@ class LeftDrawer extends StatelessWidget {
             child: const Column(
               children: [
                 Text(
-                  'Mental Health Tracker',
+                  'Setim Mobile',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,

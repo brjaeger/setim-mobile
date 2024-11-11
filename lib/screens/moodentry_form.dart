@@ -9,9 +9,9 @@ class MoodEntryFormPage extends StatefulWidget {
 }
 
 class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
-  String _mood = "";
-  String _feelings = "";
-  int _moodIntensity = 0;
+  String _product = "";
+  String _description = "";
+  int _price = 0;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -39,20 +39,20 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Mood',
-                    labelText: 'Mood',
+                    hintText: 'Product',
+                    labelText: 'Product',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _mood = value!;
+                      _product = value!;
                     });
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Mood tidak boleh kosong';
+                      return 'Product tidak boleh kosong';
                     }
                     return null;
                   },
@@ -62,20 +62,20 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Feelings',
-                    labelText: 'Feelings',
+                    hintText: 'Description',
+                    labelText: 'Description',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _feelings = value!;
+                      _description = value!;
                     });
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Feelings tidak boleh kosong';
+                      return 'Description tidak boleh kosong';
                     }
                     return null;
                   },
@@ -85,23 +85,23 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Mood Intensity',
-                    labelText: 'Mood Intensity',
+                    hintText: 'Price',
+                    labelText: 'Price',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _moodIntensity = int.parse(value!);
+                      _price = int.parse(value!);
                     });
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Mood Intensity tidak boleh kosong';
+                      return 'Price tidak boleh kosong';
                     }
                     if (int.tryParse(value) == null) {
-                      return 'Mood Intensity harus berupa angka';
+                      return 'Price harus berupa angka';
                     }
                     return null;
                   },
@@ -123,14 +123,14 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: const Text('Mood berhasil ditambahkan'),
+                                title: const Text('Product berhasil ditambahkan'),
                                 content: SingleChildScrollView(
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Mood: $_mood'),
-                                        Text('Feelings: $_feelings'),
-                                        Text('Mood Intensity: $_moodIntensity'),
+                                        Text('Product: $_product'),
+                                        Text('Description: $_description'),
+                                        Text('Price: $_price'),
                                       ],
                                     )
                                 ),
