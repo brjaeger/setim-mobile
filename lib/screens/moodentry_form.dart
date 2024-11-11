@@ -100,8 +100,12 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                     if (value == null || value.isEmpty) {
                       return 'Price tidak boleh kosong';
                     }
-                    if (int.tryParse(value) == null) {
+                    final parsedValue = int.tryParse(value);
+                    if (parsedValue == null) {
                       return 'Price harus berupa angka';
+                    }
+                    if (parsedValue < 0) {
+                      return 'Price tidak boleh negatif';
                     }
                     return null;
                   },
