@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// Impor drawer widget
+import 'package:setim_mobile/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306165742'; // NPM
@@ -15,6 +17,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Scaffold menyediakan struktur dasar halaman dengan appBar dan body.
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -25,6 +28,8 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        // Mengganti warna icon drawer menjadi putih
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -70,6 +75,8 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
+      drawer: const LeftDrawer(),
     );
   }
 }
@@ -93,11 +100,18 @@ class ItemCard extends StatelessWidget {
       color: item.color, // Menggunakan warna dari item.color
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
+        // Area responsif terhadap sentuhan
         onTap: () {
+          // Memunculkan SnackBar ketika diklik
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
+
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          if (item.name == "Tambah Mood") {
+            // TODO: Gunakan Navigator.push untuk melakukan navigasi ke MaterialPageRoute yang mencakup MoodEntryFormPage.
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(8),
