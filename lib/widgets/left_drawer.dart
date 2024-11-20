@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:setim_mobile/screens/menu.dart';
 import 'package:setim_mobile/screens/moodentry_form.dart';
+import 'package:setim_mobile/screens/list_setim_product.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -50,15 +50,13 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.mood),
-            title: const Text('Tambah Mood'),
-            // Bagian redirection ke MoodEntryFormPage
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar Mood'),
             onTap: () {
+              // Route menu ke halaman mood
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MoodEntryFormPage(),
-                  )
+                context,
+                MaterialPageRoute(builder: (context) => const MoodEntryPage()),
               );
             },
           ),
